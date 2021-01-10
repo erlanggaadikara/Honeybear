@@ -1,6 +1,20 @@
-# Getting Started with Create React App
+# Honeybear Starter Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project bootstrapped witdh create-react-app
+
+Starting project with recomenndation tools:
+
+```
+"@reach/router",
+"@tailwindcss",
+"axios",
+"mobx-react-lite",
+"react-helmet",
+"react-scripts",
+
+```
+
+Since react-scripts > 4 support fast refresh, so there is no need react hot reload
 
 ## Available Scripts
 

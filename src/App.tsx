@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Modal from "libs/ui/Modal";
+import { observer, useLocalObservable } from "mobx-react-lite";
 
-function App() {
+export default observer(() => {
+  const meta = useLocalObservable(() => ({
+    open: false,
+  }));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div className="max-w-md mx-auto flex  p-6 bg-gray-100 mt-10 rounded-lg shadow-xl ">
+        <div className="ml-6 pt-1">
+          <h1 className="text-2xl text-blue-700 leading-tight ">
+            Tailwind and Create React App
+          </h1>
+          <p className="text-base text-gray-700 leading-normal">
+            Building apps together
+          </p>
+        </div>
+        <button
+          onClick={() => (meta.open = true)}
+          type="button"
+          className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Modal
+        </button>
+      </div>
+      <Modal open={meta.open} onClose={() => (meta.open = false)}>
+        <div className="max-w-md mx-auto flex  p-6 bg-gray-100 mt-10 rounded-lg shadow-xl ">
+          <div className="ml-6 pt-1">
+            <h1 className="text-2xl text-blue-700 leading-tight ">
+              Tailwind and Create React App
+            </h1>
+            <p className="text-base text-gray-700 leading-normal">
+              Building apps together
+            </p>
+          </div>
+        </div>
+      </Modal>
+      ;
+    </>
   );
-}
-
-export default App;
+});
