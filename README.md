@@ -2,7 +2,7 @@
 
 This project bootstrapped witdh create-react-app
 
-Starting project with recomenndation tools:
+Starting project with recommendation tools:
 
 ```
 "@reach/router",
