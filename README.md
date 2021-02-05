@@ -6,11 +6,13 @@ Starting project with recomenndation tools:
 
 ```
 "@reach/router",
-"@tailwindcss",
+"tailwindcss",
 "axios",
 "mobx-react-lite",
 "react-helmet",
 "react-scripts",
+
+It also had Material-ui
 
 ```
 

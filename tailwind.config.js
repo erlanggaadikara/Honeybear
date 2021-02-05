@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {},
     fontFamily: {
-      Monstserrat: ["Monstserrat"],
+      'montserrat': ["Montserrat"],
     },
   },
   variants: {
