@@ -1,13 +1,22 @@
 import { observer } from "mobx-react-lite";
 
-export default observer((props: any) => {
+interface propType {
+  children: any;
+  className?: any;
+  onFocus?: () => null;
+  onFocusOut?: () => null;
+  css?: any;
+}
+
+export default observer(({className, children, ...rest}: propType) => {
   return (
     <p
       className={`${
-        props.className ? props.className : "text-xl"
+        className ? className : " text-xl"
       } font-montserrat`}
+      {...rest}
     >
-      {props.children}
+      {children}
     </p>
   );
 });
