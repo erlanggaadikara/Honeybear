@@ -1,14 +1,14 @@
 import * as jwt from "jsonwebtoken";
-import { observable } from "mobx";
+import { observable, observe } from "mobx";
 
-export const session = observable({
+export const msession = observable({
   data: "" as any,
 });
 
 const setSession = (data: any) => {
   const convertData = jwt.sign(data, "deleteitdeleteit");
   localStorage.setItem("session", convertData);
-  session.data = data;
+  msession.data = data;
 };
 
 const getSession = async () => {
@@ -18,7 +18,7 @@ const getSession = async () => {
     jwt.verify(token, "deleteitdeleteit", (err: any, res: any) => {
       if (err) return console.log(err);
       respond = res;
-      session.data = res;
+      msession.data = res;
     });
   }
   return respond;
@@ -30,4 +30,5 @@ const deleteSession = () => {
   }
 };
 
-export const Session = { setSession, getSession, deleteSession, session };
+export const Session = { setSession, getSession, deleteSession, msession };
+export const session = observe(msession, getSession);
